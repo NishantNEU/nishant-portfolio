@@ -1,0 +1,155 @@
+/* ═══════════════════════════════════════════════
+   ABOUT — Apple storytelling + What Drives Me
+   ═══════════════════════════════════════════════ */
+
+.about {
+  background: var(--bg-secondary);
+}
+
+.about-headline {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.032em;
+  color: var(--text-primary);
+  white-space: pre-line;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.about-body {
+  max-width: 720px;
+  margin: 0 auto 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-body p {
+  font-size: clamp(1rem, 1.5vw, 1.1875rem);
+  line-height: 1.58;
+  color: var(--text-secondary);
+  letter-spacing: -0.016em;
+}
+
+/* ═══════════════════════════════
+   WHAT DRIVES ME — Values Grid
+   ═══════════════════════════════ */
+
+.values-label {
+  text-align: center;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin-bottom: 2.5rem;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.value-card {
+  padding: 2rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.value-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent);
+}
+
+/* Subtle corner accent on hover */
+.value-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(
+    circle at top left,
+    var(--accent) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.value-card:hover::before {
+  opacity: 0.08;
+}
+
+.value-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  color: var(--accent);
+  transition: background 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+
+.value-card:hover .value-icon {
+  background: var(--accent);
+  color: #ffffff;
+  transform: scale(1.06) rotate(-3deg);
+}
+
+.value-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.022em;
+  margin-bottom: 0.5rem;
+  line-height: 1.25;
+}
+
+.value-desc {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  letter-spacing: -0.016em;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .about-body {
+    margin-bottom: 3.5rem;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .value-card {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-headline {
+    white-space: normal;
+  }
+}

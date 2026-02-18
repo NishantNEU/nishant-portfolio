@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta -->
+    <title>Nishant Patil — Software Engineer</title>
+    <meta name="description" content="Software Engineer specializing in full-stack development, AI/ML, and fintech. MS in Information Systems at Northeastern University." />
+    <meta name="author" content="Nishant Patil" />
+    <meta name="keywords" content="Nishant Patil, Software Engineer, Full Stack Developer, Northeastern University, Portfolio" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Nishant Patil — Software Engineer" />
+    <meta property="og:description" content="Full-stack engineer crafting elegant, high-performance software." />
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/000000/ffffff?text=Nishant+Patil+Software+Engineer" />
+    <meta property="og:url" content="https://nishantpatil.dev" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Nishant Patil — Software Engineer" />
+    <meta name="twitter:description" content="Full-stack engineer crafting elegant, high-performance software." />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- SF Pro alternative — Inter (closest match on Google Fonts) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Smooth scroll -->
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      /* Prevent FOUC */
+      body {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      body.loaded {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      // Prevent flash of unstyled content
+      window.addEventListener('DOMContentLoaded', () => {
+        document.body.classList.add('loaded');
+      });
+      // Apply saved theme instantly before React loads
+      (function() {
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = saved || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+  </body>
+</html>

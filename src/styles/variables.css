@@ -1,0 +1,123 @@
+/* ═══════════════════════════════════════════════
+   APPLE-STYLE THEME SYSTEM
+   All colors defined here — components use var()
+   ═══════════════════════════════════════════════ */
+
+/* ─── Light Theme (Default) ─── */
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f7;
+  --bg-tertiary: #fbfbfd;
+
+  --text-primary: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --text-tertiary: #86868b;
+
+  --accent: #0071e3;
+  --accent-hover: #0077ed;
+  --accent-light: rgba(0, 113, 227, 0.08);
+
+  --card-bg: rgba(255, 255, 255, 0.72);
+  --card-border: rgba(0, 0, 0, 0.08);
+  --card-hover: rgba(255, 255, 255, 0.9);
+
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.35);
+
+  --nav-bg: rgba(251, 251, 253, 0.72);
+  --nav-border: rgba(0, 0, 0, 0.06);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.1);
+
+  --divider: rgba(0, 0, 0, 0.06);
+  --input-bg: #f5f5f7;
+  --input-border: rgba(0, 0, 0, 0.1);
+  --input-focus: #0071e3;
+
+  --hero-glow: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(0, 113, 227, 0.07) 0%,
+    transparent 60%
+  );
+
+  --chat-user-bg: #0071e3;
+  --chat-user-text: #ffffff;
+  --chat-bot-bg: #f5f5f7;
+  --chat-bot-text: #1d1d1f;
+
+  --tag-bg: rgba(0, 113, 227, 0.08);
+  --tag-text: #0071e3;
+
+  --success: #30d158;
+  --warning: #ff9f0a;
+  --error: #ff375f;
+
+  --timeline-line: rgba(0, 0, 0, 0.08);
+  --timeline-dot: #0071e3;
+}
+
+/* ─── Dark Theme ─── */
+[data-theme="dark"] {
+  --bg-primary: #000000;
+  --bg-secondary: #1d1d1f;
+  --bg-tertiary: #0a0a0a;
+
+  --text-primary: #f5f5f7;
+  --text-secondary: #a1a1a6;
+  --text-tertiary: #6e6e73;
+
+  --accent: #2997ff;
+  --accent-hover: #40a3ff;
+  --accent-light: rgba(41, 151, 255, 0.1);
+
+  --card-bg: rgba(29, 29, 31, 0.72);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-hover: rgba(29, 29, 31, 0.9);
+
+  --glass-bg: rgba(29, 29, 31, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  --nav-bg: rgba(0, 0, 0, 0.72);
+  --nav-border: rgba(255, 255, 255, 0.06);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.5);
+
+  --divider: rgba(255, 255, 255, 0.06);
+  --input-bg: #1d1d1f;
+  --input-border: rgba(255, 255, 255, 0.1);
+  --input-focus: #2997ff;
+
+  --hero-glow: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(41, 151, 255, 0.06) 0%,
+    transparent 60%
+  );
+
+  --chat-user-bg: #2997ff;
+  --chat-user-text: #ffffff;
+  --chat-bot-bg: #1d1d1f;
+  --chat-bot-text: #f5f5f7;
+
+  --tag-bg: rgba(41, 151, 255, 0.12);
+  --tag-text: #2997ff;
+
+  --success: #30d158;
+  --warning: #ff9f0a;
+  --error: #ff375f;
+
+  --timeline-line: rgba(255, 255, 255, 0.08);
+  --timeline-dot: #2997ff;
+}
+
+/* ─── Transition for theme switching ─── */
+[data-theme] {
+  transition:
+    background-color 0.4s ease,
+    color 0.3s ease;
+}

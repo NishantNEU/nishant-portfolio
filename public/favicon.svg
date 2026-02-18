@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <!-- Background gradient (light mode) -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f5f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e8e8eb;stop-opacity:1" />
+    </linearGradient>
+    <style>
+      @media (prefers-color-scheme: dark) {
+        #favicon-bg { fill: url(#darkBgGradient) !important; }
+        #favicon-text { fill: #f5f5f7 !important; }
+      }
+    </style>
+    <linearGradient id="darkBgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1d1d1f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#323235;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Rounded square background -->
+  <rect id="favicon-bg" x="0" y="0" width="192" height="192" rx="40" ry="40" fill="url(#bgGradient)"/>
+  
+  <!-- Text: NP -->
+  <text id="favicon-text" x="96" y="115" font-family="'-apple-system, BlinkMacSystemFont, SF Pro Display, Helvetica Neue, sans-serif'" font-size="84" font-weight="700" text-anchor="middle" fill="#0071e3" letter-spacing="-2">NP</text>
+</svg>
