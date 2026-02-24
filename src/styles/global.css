@@ -82,7 +82,7 @@ body {
 
 /* ─── Apple Section Layout ─── */
 .section {
-  padding: 7.5rem 0;
+  padding: 9rem 0;
   position: relative;
 }
 
@@ -105,31 +105,32 @@ body {
 .section-header {
   text-align: center;
   max-width: 680px;
-  margin: 0 auto 4rem;
+  margin: 0 auto 5rem;
 }
 
 .section-label {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   color: var(--accent);
-  margin-bottom: 0.75rem;
-}
-
-.section-title {
-  font-size: clamp(2rem, 4.5vw, 3rem);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.032em;
-  color: var(--text-primary);
   margin-bottom: 1rem;
 }
 
+.section-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
 .section-subtitle {
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
-  line-height: 1.5;
+  font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+  line-height: 1.52;
   color: var(--text-secondary);
+  letter-spacing: -0.016em;
 }
 
 /* ─── Apple-style Links ─── */
@@ -149,7 +150,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.75rem;
+  padding: 0.875rem 2rem;
   background: var(--accent);
   color: #ffffff;
   border: none;
@@ -158,14 +159,35 @@ a:hover {
   font-weight: 500;
   letter-spacing: -0.022em;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .btn-primary:hover {
   background: var(--accent-hover);
   color: #ffffff;
-  transform: scale(1.02);
+  transform: scale(1.04);
+  box-shadow: 0 4px 24px rgba(0, 113, 227, 0.3);
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
 }
 
 .btn-secondary {
@@ -173,7 +195,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.75rem;
+  padding: 0.875rem 2rem;
   background: transparent;
   color: var(--accent);
   border: none;
@@ -182,7 +204,7 @@ a:hover {
   font-weight: 500;
   letter-spacing: -0.022em;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
 }
 
@@ -204,18 +226,19 @@ a:hover {
   color: #ffffff;
 }
 
-/* ─── Scrollbar (WebKit) ─── */
+/* ─── Scrollbar (WebKit) — Apple thin ─── */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-primary);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--text-tertiary);
-  border-radius: 4px;
+  border-radius: 3px;
+  opacity: 0.5;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -232,10 +255,10 @@ a:hover {
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
   .section {
-    padding: 4rem 0;
+    padding: 5rem 0;
   }
 
   .section-header {
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
   }
-}   
+}

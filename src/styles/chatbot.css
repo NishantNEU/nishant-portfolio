@@ -19,36 +19,28 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
-    box-shadow 0.3s ease,
-    background 0.3s ease;
-  outline: none;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .chatbot-trigger:hover {
-  transform: scale(1.08);
-  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.25);
+  transform: scale(1.1);
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.25);
   background: var(--accent-hover);
 }
 
-.chatbot-trigger:focus-visible {
-  outline: 2px solid var(--text-primary);
-  outline-offset: 2px;
-}
-
 .chatbot-trigger.open {
-  transform: scale(0.9) rotate(90deg);
+  transform: scale(0.92) rotate(90deg);
 }
 
-/* ─── Pulse ring on trigger (improved animation) ─── */
+/* ─── Pulse ring on trigger ─── */
 .chatbot-trigger::before {
   content: "";
   position: absolute;
-  inset: -6px;
+  inset: -4px;
   border-radius: 50%;
   border: 2px solid var(--accent);
   opacity: 0;
-  animation: chatPulse 2.5s ease-in-out infinite;
+  animation: chatPulse 3s ease-in-out infinite;
 }
 
 .chatbot-trigger.open::before {
@@ -57,17 +49,8 @@
 }
 
 @keyframes chatPulse {
-  0% { 
-    opacity: 1; 
-    transform: scale(1);
-  }
-  50% { 
-    opacity: 0.5; 
-  }
-  100% { 
-    opacity: 0; 
-    transform: scale(1.2);
-  }
+  0%, 100% { opacity: 0; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.15); }
 }
 
 /* ─── Chat Window ─── */
@@ -89,10 +72,8 @@
   /* Animation */
   opacity: 0;
   visibility: hidden;
-  transform: translateY(16px) scale(0.96);
-  transition: opacity 0.35s cubic-bezier(0.25, 0.1, 0.25, 1),
-    visibility 0.35s ease,
-    transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transform: translateY(20px) scale(0.94);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .chatbot-window.open {

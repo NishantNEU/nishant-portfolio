@@ -7,16 +7,16 @@
   position: relative;
 }
 
-/* ─── Footer ─── */
+/* ─── Footer — Apple minimal ─── */
 .footer {
-  padding: 2rem 0;
+  padding: 1.5rem 0;
   text-align: center;
-  border-top: 1px solid var(--divider);
+  border-top: 0.5px solid var(--divider);
   background: var(--bg-primary);
 }
 
 .footer p {
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   color: var(--text-tertiary);
   letter-spacing: -0.01em;
 }
@@ -30,10 +30,13 @@
   color: var(--accent);
 }
 
-/* ─── Section dividers ─── */
+/* ─── Section dividers — Apple hairline ─── */
 .section-divider {
-  height: 1px;
+  height: 0.5px;
   background: var(--divider);
   margin: 0;
   border: none;
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
 }

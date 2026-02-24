@@ -11,13 +11,12 @@ export function useScrollReveal(options = {}) {
       ([entry]) => {
         if (entry.isIntersecting) {
           el.classList.add("visible");
-          // Once revealed, stop observing
           observer.unobserve(el);
         }
       },
       {
-        threshold: options.threshold || 0.15,
-        rootMargin: options.rootMargin || "0px 0px -60px 0px",
+        threshold: options.threshold || 0.1,
+        rootMargin: options.rootMargin || "0px 0px -80px 0px",
       }
     );
 

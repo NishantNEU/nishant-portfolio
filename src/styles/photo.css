@@ -224,9 +224,9 @@
   position: relative;
   z-index: 2;
   margin-top: auto;
-  padding: 0 1.25rem 1.75rem;
+  padding: 0 1.25rem 0;
   text-align: center;
-  padding-bottom: 2rem;
+  padding-bottom: 28px;
 }
 
 .lockscreen-name {
@@ -250,13 +250,12 @@
 
 /* ─── iOS Home indicator bar ─── */
 .lockscreen-bar {
-  width: 100px;
-  height: 4px;
+  width: 36%;
+  height: 5px;
   border-radius: 100px;
-  background: rgba(255, 255, 255, 0.5);
-  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.55);
   position: absolute;
-  bottom: 8px;
+  bottom: 7px;
   left: 50%;
   transform: translateX(-50%);
 }

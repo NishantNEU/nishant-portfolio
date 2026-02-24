@@ -34,22 +34,22 @@
 .input-group input,
 .input-group textarea {
   width: 100%;
-  padding: 0.875rem 1rem;
+  padding: 0.9375rem 1.125rem;
   background: var(--input-bg);
   border: 1.5px solid var(--input-border);
-  border-radius: 12px;
+  border-radius: 14px;
   font-family: inherit;
   font-size: 1rem;
   color: var(--text-primary);
   letter-spacing: -0.022em;
   outline: none;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .input-group input:focus,
 .input-group textarea:focus {
   border-color: var(--input-focus);
-  box-shadow: 0 0 0 3px var(--accent-light);
+  box-shadow: 0 0 0 4px var(--accent-light);
   background: var(--bg-primary);
 }
 
