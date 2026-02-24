@@ -37,7 +37,7 @@ export default function Photo() {
   //   1. Put your photo in: public/photo.jpg
   //   2. Recommended: Portrait orientation, min 600px wide
   // ──────────────────────────────────────────
-  const photoSrc = "public/Portfolio_PIC.JPEG";
+  const photoSrc = "/photo.JPEG";
 
   // Get current time for lock screen
   const [time, setTime] = useState(new Date());

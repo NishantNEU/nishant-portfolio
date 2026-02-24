@@ -14,8 +14,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Nishant Patil — Software Engineer" />
     <meta property="og:description" content="Full-stack engineer crafting elegant, high-performance software." />
-    <meta property="og:image" content="https://via.placeholder.com/1200x630/000000/ffffff?text=Nishant+Patil+Software+Engineer" />
-    <meta property="og:url" content="https://nishantpatil.dev" />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:url" content="https://nishantPatil.dev" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -49,6 +49,14 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Hidden form for Netlify Forms detection (required for SPA) -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
+
     <script type="module" src="/src/main.jsx"></script>
     <script>
       // Prevent flash of unstyled content

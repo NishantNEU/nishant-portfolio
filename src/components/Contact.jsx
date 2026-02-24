@@ -1,31 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Mail, Linkedin, Github, MapPin, CheckCircle } from "lucide-react";
-import emailjs from "emailjs-com";
 import { personal } from "../assets/data";
 import ScrollReveal from "./ScrollReveal";
 import "../styles/contact.css";
 
 const initialForm = { name: "", email: "", message: "" };
 
-// Initialize EmailJS (get your keys from https://www.emailjs.com)
-// Replace with your actual EmailJS credentials
-const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
-
 export default function Contact() {
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
-  const [sendError, setSendError] = useState("");
-
-  useEffect(() => {
-    // Initialize EmailJS
-    if (EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") {
-      emailjs.init(EMAILJS_PUBLIC_KEY);
-    }
-  }, []);
 
   const validate = () => {
     const errs = {};
@@ -46,7 +31,6 @@ export default function Contact() {
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
-    setSendError("");
   };
 
   const handleSubmit = async (e) => {
@@ -56,38 +40,24 @@ export default function Contact() {
       setErrors(errs);
       return;
     }
-
     setSending(true);
-    setSendError("");
 
     try {
-      // Check if EmailJS is configured
-      if (EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY") {
-        // Fallback: show message that user needs to configure EmailJS
-        setSubmitted(true);
-        setForm(initialForm);
-      } else {
-        // Send email via EmailJS
-        await emailjs.send(
-          EMAILJS_SERVICE_ID,
-          EMAILJS_TEMPLATE_ID,
-          {
-            from_name: form.name,
-            from_email: form.email,
-            message: form.message,
-            to_email: personal.email,
-          },
-          EMAILJS_PUBLIC_KEY
-        );
-        setSubmitted(true);
-        setForm(initialForm);
-      }
-    } catch (error) {
-      setSendError("Failed to send message. Please try again or contact me directly via email.");
-      console.error("EmailJS error:", error);
-    } finally {
-      setSending(false);
+      // Netlify Forms submission
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          "form-name": "contact",
+          ...form,
+        }).toString(),
+      });
+      setSubmitted(true);
+    } catch (err) {
+      console.error(err);
     }
+
+    setSending(false);
   };
 
   return (
@@ -115,7 +85,15 @@ export default function Contact() {
                 <p>Thanks for reaching out. I'll get back to you soon.</p>
               </div>
             ) : (
-              <form className="contact-form" onSubmit={handleSubmit} noValidate>
+              <form
+                className="contact-form"
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                onSubmit={handleSubmit}
+                noValidate
+              >
+                <input type="hidden" name="form-name" value="contact" />
                 <div className="contact-row">
                   <div className="input-group">
                     <label htmlFor="name">Name</label>
@@ -127,8 +105,6 @@ export default function Contact() {
                       value={form.name}
                       onChange={handleChange}
                       className={errors.name ? "error" : ""}
-                      required
-                      aria-required="true"
                     />
                     {errors.name && (
                       <p className="input-error-text">{errors.name}</p>
@@ -144,8 +120,6 @@ export default function Contact() {
                       value={form.email}
                       onChange={handleChange}
                       className={errors.email ? "error" : ""}
-                      required
-                      aria-required="true"
                     />
                     {errors.email && (
                       <p className="input-error-text">{errors.email}</p>
@@ -162,19 +136,11 @@ export default function Contact() {
                     value={form.message}
                     onChange={handleChange}
                     className={errors.message ? "error" : ""}
-                    required
-                    aria-required="true"
                   />
                   {errors.message && (
                     <p className="input-error-text">{errors.message}</p>
                   )}
                 </div>
-
-                {sendError && (
-                  <p className="input-error-text" style={{ marginBottom: "1rem" }}>
-                    {sendError}
-                  </p>
-                )}
 
                 <button
                   type="submit"
